@@ -1,7 +1,7 @@
 "use client";
 
-import { Link, useRouter } from "@/i18n/navigation";
-
+import { Link, useRouter as useNextIntlRouter } from "@/i18n/navigation";
+import { useRouter } from "@bprogress/next/app";
 const buttonStyle = {
   padding: "12px 20px",
   cursor: "pointer",
@@ -15,7 +15,7 @@ const buttonStyle = {
 };
 
 export default function HomePage() {
-  const router = useRouter();
+  const router = useRouter({ customRouter: useNextIntlRouter });
 
   return (
     <div

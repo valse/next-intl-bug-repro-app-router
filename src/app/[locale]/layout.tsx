@@ -3,6 +3,7 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { ReactNode } from "react";
+import ProgressBarProvider from "./components/ProgressBarProvider";
 
 type Props = {
   children: ReactNode;
@@ -29,7 +30,9 @@ export default async function LocaleLayout({ children, params }: Props) {
         <title>next-intl-bug-repro-app-router</title>
       </head>
       <body>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider>
+          <ProgressBarProvider>{children}</ProgressBarProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
