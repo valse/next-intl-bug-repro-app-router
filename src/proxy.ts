@@ -4,7 +4,10 @@ import { routing } from "./i18n/routing";
 
 const intlMiddleware = createMiddleware(routing);
 
-export default function middleware(req: NextRequest) {
+// In proxy.ts
+export default async function middleware(req: NextRequest) {
+  // Simula la latenza di rete di un progetto grande
+  await new Promise((resolve) => setTimeout(resolve, 100));
   return intlMiddleware(req);
 }
 
